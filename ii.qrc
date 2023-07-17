@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>download1_180x120.jpg</file>
+    <file>download120_1_120x80.jpg</file>
+    <file>download120_60x40.jpg</file>
+    <file>download1.jpg</file>
+  </qresource>
+  <qresource prefix="newPrefix">
+    <file>download120.jpg</file>
+    <file>download172.jpg</file>
+  </qresource>
+</RCC>
