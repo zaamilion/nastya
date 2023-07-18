@@ -13,29 +13,30 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(287, 300)
+        Dialog.setObjectName("Рандомайзер")
+        Dialog.resize(564, 600)
         Dialog.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.pushButton = QtWidgets.QPushButton(Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(80, 180, 131, 71))
+        self.pushButton.setGeometry(QtCore.QRect(160, 360, 262, 142))
         self.pushButton.setStyleSheet("background-color: rgb(179, 204, 43);\n"
 "color: rgb(255, 255, 255);\n"
 "font: 20pt \"Consolas\";\n"
 "border-radius: 20px;")
         self.pushButton.setObjectName("pushButton")
         self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(50, -50, 511, 141))
+        self.label.setGeometry(QtCore.QRect(100, -100, 1022, 282))
         self.label.setMinimumSize(QtCore.QSize(511, 141))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(":/newPrefix/download1_180x120.jpg"))
+        self.label.setPixmap(QtGui.QPixmap(".\download1.jpg"))
         self.label.setObjectName("label")
         self.label_3 = QtWidgets.QLabel(Dialog)
-        self.label_3.setGeometry(QtCore.QRect(80, 90, 131, 81))
-        self.label_3.setStyleSheet("font: 75pt \"Consolas\";\n"
+        self.label_3.setGeometry(QtCore.QRect(80, 100,400, 200))
+        self.label_3.setStyleSheet("font: 60pt \"Consolas\";\n"
 "color: rgb(156, 188, 4);\n"
 "")
         self.label_3.setText("")
         self.label_3.setObjectName("label_3")
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -44,4 +45,17 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.pushButton.setText(_translate("Dialog", "Старт"))
-import ii_rc
+
+import sys
+import random
+app = QtWidgets.QApplication(sys.argv)
+MainWindow = QtWidgets.QMainWindow()
+ui = Ui_Dialog()
+ui.setupUi(MainWindow)
+MainWindow.show()
+
+def generate():
+    ui.label_3.setText(str(random.randint(1,180)))
+
+ui.pushButton.clicked.connect(generate)
+sys.exit(app.exec_())
